@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ClientesService } from './services/clientes.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'services';
+
+  constructor(
+    public cService: ClientesService
+  ) {}
+
+  ngOnInit(): void {
+    const clientes = this.cService.listarClientes()
+    console.log(clientes)
+  }
 }
+
+
